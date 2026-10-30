@@ -1,0 +1,115 @@
+# Check Python 3.11
+py -3.11 --version
+
+# Go to your project folder
+cd "D:\remya\IIT patna\GEN AI\GEN_AI\1-API-VS_Local_Model"
+
+# Create the virtual environment
+py -3.11 -m venv myenv
+
+# Allow script execution for this session (if needed)
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+# Activate the virtual environment
+.\myenv\Scripts\Activate.ps1
+
+# Upgrade pip
+python -m pip install --upgrade pip
+
+# Install the project dependencies
+pip install -r requirements.txt
+
+python -m pip install -r requirements.txt
+
+Remove-Item -Recurse -Force myenv
+
+python -m streamlit run app.py
+
+---------------------------------------
+
+right sequence. 
+
+From your project directory:
+
+py -3.11 -m venv .venv
+
+Activate it:
+
+
+
+
+
+
+Verify:
+
+python --version
+
+You want:
+
+Python 3.11.x
+
+Then upgrade pip:
+
+python -m pip install --upgrade pip
+
+Then install your requirements:
+
+python -m pip install -r requirements.txt
+
+streamlit run app/streamlit_aop.py
+
+----------------------------------------
+still misbehaving.
+
+Please run these commands one at a time from the project directory:
+
+.\.venv\Scripts\Activate.ps1
+
+Then:
+
+python --version
+
+Then:
+
+python -c "import sys; print(sys.executable)"
+
+Then:
+
+python -m pip --version
+
+Then specifically:
+
+python -m pip install langchain-pinecone==0.2.13
+What I want to see
+
+If everything is correct, you should get something similar to:
+
+Python 3.11.x
+C:\...\your-project\.venv\Scripts\python.exe
+pip ... from ...\.venv\Lib\site-packages
+
+If the last command still fails, don't keep reinstalling packages.
+
+Please upload your requirements.txt here. It will let me check the complete dependency combination rather than guessing which package is causing the conflict.
+
+Upload a file
+
+Also paste the output of these three commands:
+
+python --version
+python -c "import sys; print(sys.executable)"
+python -m pip --version
+
+Especially the sys.executable line is important — it will tell us whether you're actually running .venv's Python 3.11.
+
+------------------------------------------------------
+Newest:
+
+this happened for mcp.
+PS D:\remya\MCP-LAB2-Server> py -3.11 -m venv .venv
+PS D:\remya\MCP-LAB2-Server> Test-Path .\.venv\Scripts\Activate.ps1
+True
+PS D:\remya\MCP-LAB2-Server> .\.venv\Scripts\Activate.ps1
+(.venv) PS D:\remya\MCP-LAB2-Server>
+
+python -m pip install -r requirements.txt

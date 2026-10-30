@@ -1,0 +1,12 @@
+1. Find the newest log files anywhere
+
+powershell
+Get-ChildItem "$env:LOCALAPPDATA\Claude","$env:LOCALAPPDATA\Claude-Data" -Recurse -Filter "*.log" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object FullName, LastWriteTime -First 10
+
+The newer app version may write logs under Claude-Data, next to the config file. Read the newest mcp.log or mcp-server-my-mcp-server.log it lists.
+
+2. Force a clean relaunch
+
+powershell
+Get-Process | Where-Object { $_.Name -like "*claude*" } | Stop-Process -Force
+netstat -ano | findstr :8080
